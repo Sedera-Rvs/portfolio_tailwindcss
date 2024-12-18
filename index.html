@@ -6,20 +6,38 @@
     <link rel="stylesheet" href="./dist/output.css">
     <title>Portfolio</title>
 </head>
-<body>
+<body class="transition-colors duration-300 dark:bg-gray-900">
 
-  
-  <div class="flex justify-center mt-3">
-    <ul class="fixed flex p-5 space-x-10 bg-red-400 rounded-md ">
+  <div id="stars-container" class="fixed inset-0 hidden pointer-events-none dark:block">
+    <div id="fixed-stars"></div>
+    <div class="shooting-star" style="top: 10%; left: 50%; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="top: 20%; left: 40%; animation-delay: 0.8s;"></div>
+    <div class="shooting-star" style="top: 30%; left: 60%; animation-delay: 1.6s;"></div>
+    <div class="shooting-star" style="top: 40%; left: 20%; animation-delay: 2.4s;"></div>
+    <div class="shooting-star" style="top: 50%; left: 80%; animation-delay: 3.2s;"></div>
+  </div>
+
+  <div class="flex justify-center mt-3 navbar">
+    <ul class="fixed flex items-center p-5 space-x-10 bg-red-400 rounded-md">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li>
+        <button id="darkModeToggle" class="p-2 rounded-full hover:bg-red-500 dark:hover:bg-gray-700">
+          <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg class="hidden w-6 h-6 dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+          </svg>
+        </button>
+      </li>
     </ul>
   </div>
 
   
-  <div class="flex flex-col justify-between px-5 pt-20 about lg:flex-row " id="about">
+  <div class="flex flex-col justify-between px-5 pt-20 about lg:flex-row dark:bg-gray-900/80 dark:text-white" id="about">
     <div class="description w-[100%] mt-10 lg:w-[55%] sm:p-5">
       <h1 class="mb-12 text-5xl font-bold text-red-400">Develloper Fullstack</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis libero atque cupiditate sunt, nulla inventore ab illum cum. Similique omnis ullam, error modi ab illo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, incidunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, error! Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, veniam?</p>
@@ -34,7 +52,7 @@
   </div>
 
   
-  <div class="px-10 pt-16 skills" id="skills">
+  <div class="px-10 pt-16 skills dark:bg-gray-900/80 dark:text-white" id="skills">
     <h1 class="mb-12 text-5xl font-bold text-center text-red-400 ">I Work To Update My Skills</h1>
     <div class="flex flex-wrap items-center justify-center langages">
       <div class="flex flex-col items-center justify-center p-5 mx-2">
@@ -69,7 +87,7 @@
   </div>
 
   
-  <div class="px-10 pt-20 projects" id="projects">
+  <div class="px-10 pt-20 projects dark:bg-gray-900/80 dark:text-white" id="projects">
     <h1 class="flex justify-center mb-12 text-5xl font-bold text-center text-red-400">Selected Projects</h1>
     <div class="flex flex-wrap justify-between">
       <div class="p-2 shadow-md shadow-gray-400 w-[270px] mt-2">
@@ -104,7 +122,7 @@
   </div>
   
   
-  <div class="px-10 pt-20 contact" id="contact">
+  <div class="px-10 pt-20 contact dark:bg-gray-900/80 dark:text-white" id="contact">
     <h1 class="flex justify-center mb-12 text-5xl font-bold text-center text-red-400">Contact Me</h1>
     <div class="flex flex-wrap justify-between">
       <div class="flex flex-wrap items-center justify-between md:none">
@@ -155,5 +173,181 @@
   <div class="p-6 mt-6 bg-gray-900">
     <p class="text-center text-white">Copyrights 2024 by Se Dera.</p>
   </div>
+
+  <script>
+    // Vérifier si le mode sombre est déjà activé
+    if (localStorage.getItem('darkMode') === 'true' || 
+        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Fonction pour créer les étoiles fixes
+    function createFixedStars() {
+      const starsContainer = document.getElementById('fixed-stars');
+      const numberOfStars = 100;
+      
+      for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        const size = Math.random();
+        
+        // Définir la taille de l'étoile
+        if (size < 0.3) star.className = 'star small';
+        else if (size < 0.7) star.className = 'star medium';
+        else star.className = 'star large';
+        
+        // Position aléatoire
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        
+        // Animation delay aléatoire
+        star.style.animationDelay = `${Math.random() * 3}s`;
+        
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Créer les étoiles fixes au chargement
+    createFixedStars();
+
+    // Gérer le basculement du mode sombre
+    document.getElementById('darkModeToggle').addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('darkMode', 'false');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('darkMode', 'true');
+      }
+    });
+
+    // Fonction pour créer une nouvelle étoile filante
+    function createShootingStar() {
+      const star = document.createElement('div');
+      star.className = 'shooting-star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      
+      document.getElementById('stars-container').appendChild(star);
+      
+      // Supprimer l'étoile après l'animation
+      setTimeout(() => {
+        star.remove();
+      }, 3000);
+    }
+
+    // Créer de nouvelles étoiles périodiquement en mode sombre
+    setInterval(() => {
+      if (document.documentElement.classList.contains('dark')) {
+        createShootingStar();
+      }
+    }, 2000);
+
+    // Code du menu hamburger
+    const menuButton = document.getElementById('menuButton');
+    const mainMenu = document.getElementById('mainMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    let isMenuOpen = false;
+
+    menuButton.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mainMenu.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        mainMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    const menuLinks = mainMenu.getElementsByTagName('a');
+    for (const link of menuLinks) {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) { // 768px est le breakpoint md de Tailwind
+          mainMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          isMenuOpen = false;
+        }
+      });
+    }
+
+    // Fermer le menu si on redimensionne l'écran au-dessus de md
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        mainMenu.classList.remove('hidden');
+      } else if (!isMenuOpen) {
+        mainMenu.classList.add('hidden');
+      }
+    });
+
+    // Code du slider
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const cards = document.querySelectorAll('.card');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    let currentIndex = 0;
+
+    function updateSlider() {
+      const cardWidth = cards[0].offsetWidth + 20; // 20px pour le gap
+      sliderWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      
+      // Mettre à jour la classe active
+      cards.forEach((card, index) => {
+        card.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentIndex < cards.length - 1) {
+        currentIndex++;
+        updateSlider();
+      }
+    });
+
+    // Mise à jour initiale
+    updateSlider();
+
+    // Gestion du swipe sur mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    sliderWrapper.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    sliderWrapper.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && currentIndex < cards.length - 1) {
+          // Swipe gauche
+          currentIndex++;
+          updateSlider();
+        } else if (diff < 0 && currentIndex > 0) {
+          // Swipe droite
+          currentIndex--;
+          updateSlider();
+        }
+      }
+    }
+  </script>
 </body>
 </html>
