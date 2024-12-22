@@ -18,11 +18,11 @@
   </div>
 
   <div class="flex justify-center mt-3 navbar">
-    <ul class="fixed flex items-center p-5 space-x-10 bg-red-400 rounded-md">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <ul class="fixed flex items-center p-3 sm:space-x-10 space-x-2 bg-red-400 rounded-md">
+      <li><a href="#about" class="hover:text-white">About</a></li>
+      <li><a href="#skills" class="hover:text-white">Skills</a></li>
+      <li><a href="#projects" class="hover:text-white">Projects</a></li>
+      <li><a href="#contact" class="hover:text-white">Contact</a></li>
       <li>
         <button id="darkModeToggle" class="p-2 rounded-full hover:bg-red-500 dark:hover:bg-gray-700">
           <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@
   <div class="flex flex-col justify-between px-5 pt-20 about lg:flex-row dark:bg-gray-900/80 dark:text-white" id="about">
     <div class="description w-[100%] mt-10 lg:w-[55%] sm:p-5">
       <h1 class="mb-12 text-5xl font-bold text-red-400">Hi. I'm a Web Develloper</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis libero atque cupiditate sunt, nulla inventore ab illum cum. Similique omnis ullam, error modi ab illo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, incidunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, error! Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, veniam?</p>
+      <p>I am a web developer and computer science student, passionate about building modern and efficient applications. I enjoy creating solutions tailored to user needs, combining creativity with technical expertise. I am particularly interested in front-end and back-end technologies, as well as freelancing, to expand my professional skills.</p>
       <div class="mt-10 btn">
         <button class="p-3 text-white duration-500 bg-red-400 border-2 border-red-400 rounded-2xl hover:bg-white hover:text-red-400"><a href="#contact" >Hire me</a></button>
         <button  class="p-3 ml-3 text-red-400 duration-500 border-2 border-red-400 rounded-2xl hover:bg-red-400 hover:text-white"><a href="folder/CV de Sedera.pdf" class="flex">Resume<img class="w-6" src="img/download.svg"></a></button>
@@ -90,35 +90,42 @@
   <div class="px-10 pt-20 projects dark:bg-gray-900/80 dark:text-white" id="projects">
     <h1 class="flex justify-center mb-12 text-5xl font-bold text-center text-red-400">Selected Projects</h1>
     <div class="flex flex-wrap justify-between">
-      <div class="p-2 shadow-md shadow-gray-400 w-[270px] mt-2">
-        <img src="" class="w-[250px] h-[350px]">
+      <div class=" w-[270px] h-[470px]  mt-2">
+      <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+        <img src="img/ecommerce.jpg" class="w-[250px] h-[250px]">
         <div class="title">
-          <h1 class="text-xl font-bold">Title</h1>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+          <h1 class="text-xl font-bold">E-Commerce</h1>
+          <p>It’s a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.</p>
         </div>
       </div>
-      <div class="p-2 shadow-md shadow-gray-400 w-[270px] mt-2">
-        <img src="" class="w-[250px] h-[350px]">
+      </div>
+      <!-- <div class=" w-[270px] h-[470px]  mt-2">
+        <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+          <img src="img/ecommerce.jpg" class="w-[250px] h-[250px]">
+          <div class="title">
+            <h1 class="text-xl font-bold">E-Commerce</h1>
+            <p>It’s a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.</p>
+          </div>
+        </div>
+    </div>
+    <div class=" w-[270px] h-[470px]  mt-2">
+      <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+        <img src="img/ecommerce.jpg" class="w-[250px] h-[250px]">
         <div class="title">
-          <h1 class="text-xl font-bold">Title</h1>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+          <h1 class="text-xl font-bold">E-Commerce</h1>
+          <p>It’s a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.</p>
         </div>
       </div>
-      <div class="p-2 shadow-md shadow-gray-400 w-[270px] mt-2">
-        <img src="" class="w-[250px] h-[350px]">
-        <div class="title">
-          <h1 class="text-xl font-bold">Title</h1>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-        </div>
-      </div>
-      <div class="p-2 shadow-md shadow-gray-400 w-[270px] mt-2">
-        <img src="" class="w-[250px] h-[350px]">
-        <div class="title">
-          <h1 class="text-xl font-bold">Title</h1>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-        </div>
+  </div>
+  <div class=" w-[270px] h-[470px]  mt-2">
+    <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+      <img src="img/ecommerce.jpg" class="w-[250px] h-[250px]">
+      <div class="title">
+        <h1 class="text-xl font-bold">E-Commerce</h1>
+        <p>It’s a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.</p>
       </div>
     </div>
+</div> -->
   </div>
   
   
@@ -148,29 +155,31 @@
             <p class="font-serif">sedera7028@gmail.com</p>
           </div>
         </div>
-        <div class="flex">
-          <img src="img/github-square.svg" class="w-8">
-          <div class="px-2">
-            <h1 class="font-bold ">Github</h1>
-            <p class="font-serif"><a href="https://github.com/sedera-Rvs/">sedera-rvs</a></p>
-          </div>
+        <div class="cursor-pointer">
+          <a href="https://github.com/sedera-Rvs/" class="flex">
+            <img src="img/github-square.svg" class="w-8">
+            <div class="px-2">
+              <h1 class="font-bold ">Github</h1>
+              <p class="font-serif">sedera-rvs</p>
+            </div>
+          </a>
         </div>
       </div>
       <div class="flex justify-center">
         <form class="flex flex-col p-10 mt-10 shadow-lg shadow-gray-400 w-[350px] sm:w-[500px]">
           <label>Name</label>
-          <input type="text" class="border-b-2 border-black outline-none">
+          <input type="text" class="border-b-2 border-black outline-none  bg-transparent">
           <label>Email</label>
-          <input type="text" class="border-b-2 border-black outline-none">
+          <input type="text" class="border-b-2 border-black outline-none bg-transparent">
           <label>Message</label>
-          <input type="textarea" class="border-b-2 border-black outline-none">
+          <input type="textarea" class="border-b-2 border-black outline-none bg-transparent">
           <input type="submit" value="Send" class="p-3 mt-10 text-white duration-500 bg-red-400 border-2 border-red-400 rounded-2xl hover:bg-white hover:text-red-400">
         </form>
       </div>
     </div>
   </div>
   
-  <div class="p-6 mt-6 bg-gray-900">
+  <div class="p-6  bg-gray-900">
     <p class="text-center text-white">Copyrights 2024 by Se Dera.</p>
   </div>
 
