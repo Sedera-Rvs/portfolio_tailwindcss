@@ -10,9 +10,20 @@
   .project-card {
       transition: transform 0.2s;
       cursor: pointer;
+      min-width: 270px; /* Assurez-vous que les cartes ont une largeur minimale */
   }
   .project-card:hover {
       transform: scale(1.05);
+  }
+  .carousel {
+      display: flex;
+      overflow-x: auto; /* Permet le défilement horizontal */
+      scroll-behavior: smooth; /* Ajoute un effet de défilement fluide */
+      padding: 10px 0; /* Ajoute un peu d'espace autour */
+      width: 100%; /* Assurez-vous que le conteneur a une largeur définie */
+  }
+  .carousel::-webkit-scrollbar {
+      display: none; /* Masquer la barre de défilement */
   }
   .modal {
       display: none;
@@ -32,6 +43,12 @@
       border-radius: 5px;
       width: 80%;
       max-width: 600px;
+  }
+  .arrow {
+      cursor: pointer;
+      font-size: 2rem;
+      padding: 10px;
+      user-select: none; /* Empêche la sélection de texte */
   }
 </style>
 
@@ -118,44 +135,68 @@
   
   <div class="px-10 pt-20 projects dark:bg-gray-900/80 dark:text-white" id="projects">
     <h1 class="flex justify-center mb-12 text-5xl font-bold text-center text-red-400">Selected Projects</h1>
-    <div class="flex flex-wrap justify-between">
-      <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('E-Commerce', 'It\'s a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.', 'img/ecommerce.jpg')">
-      <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
-        <img src="img/ecommerce.jpg" class="w-[250px] h-[250px]">
-        <div class="title">
-          <h1 class="text-xl font-bold">E-Commerce</h1>
-          <p>It's a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.</p>
+    
+    <!-- Flèches de navigation -->
+    <div class="flex items-center">
+        <span class="arrow" onclick="scrollCarouselLeft()">&#10094;</span>
+        <div class="carousel" id="carousel">
+            <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('E-Commerce', 'It\'s a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.', 'img/ecommerce.jpg')">
+                <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+                    <img src="img/ecommerce.jpg" class="w-[250px] h-[250px]">
+                    <div class="title">
+                        <h1 class="text-xl font-bold">E-Commerce</h1>
+                        <p>It's a mini e-commerce platform built with the Python framework Django, featuring basic functionalities and styled with TailwindCSS.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('Local Cybercafé management platform', 'It\'s time management, prices of connected people. Build with PHP, JavaScipt, MySQL.', 'img/cyber.png')">
+                <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+                    <img src="img/cyber.png" class="w-[250px] h-[250px]">
+                    <div class="title">
+                        <h1 class="text-xl font-bold">Local Cybercafé management platform</h1>
+                        <p> It's time management, prices of connected people. Build with PHP, JavaScipt, MySQL.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('Pharmacy Management Platform', 'It\'s a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.', 'img/pharmacie.png')">
+                <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+                    <img src="img/pharmacie.png" class="w-[250px] h-[250px]">
+                    <div class="title">
+                        <h1 class="text-xl font-bold"> Pharmacy Management Platform</h1>
+                        <p>It's a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('Pharmacy Management Platform', 'It\'s a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.', 'img/pharmacie.png')">
+                <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+                    <img src="img/pharmacie.png" class="w-[250px] h-[250px]">
+                    <div class="title">
+                        <h1 class="text-xl font-bold"> Pharmacy Management Platform</h1>
+                        <p>It's a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('Pharmacy Management Platform', 'It\'s a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.', 'img/pharmacie.png')">
+                <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+                    <img src="img/pharmacie.png" class="w-[250px] h-[250px]">
+                    <div class="title">
+                        <h1 class="text-xl font-bold"> Pharmacy Management Platform</h1>
+                        <p>It's a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('CV creation platform', 'It\'s a site allowing people to easily and quickly create CVs with various themes. Build with Django.', 'img/createCV.png')">
+                <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
+                    <img src="img/createCV.png" class="w-[250px] h-[250px]">
+                    <div class="title">
+                        <h1 class="text-xl font-bold"> CV creation platform</h1>
+                        <p>It's a site allowing people to easily and quickly create CVs with various themes. Build with Django.</p>
+                    </div>
+                </div>
+            </div> 
         </div>
-      </div>
-      </div>
-     <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('Local Cybercafé management platform', 'It\'s time management, prices of connected people. Build with PHP, JavaScipt, MySQL.', 'img/cyber.png')">
-        <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
-          <img src="img/cyber.png" class="w-[250px] h-[250px]">
-          <div class="title">
-            <h1 class="text-xl font-bold">Local Cybercafé management platform</h1>
-            <p> It's time management, prices of connected people. Build with PHP, JavaScipt, MySQL.</p>
-          </div>
-        </div>
+        <span class="arrow" onclick="scrollRight()">&#10095;</span>
     </div>
-    <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('Pharmacy Management Platform', 'It\'s a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.', 'img/pharmacie.png')">
-      <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
-        <img src="img/pharmacie.png" class="w-[250px] h-[250px]">
-        <div class="title">
-          <h1 class="text-xl font-bold"> Pharmacy Management Platform</h1>
-          <p>It's a management of drug stocks added and sold with a visualization graph over time. Build with PHP, JavaScipt (ChartJS), MySQL.</p>
-        </div>
-      </div>
-  </div>
-  <div class="project-card w-[270px] h-[470px] mt-2" onclick="openModal('CV creation platform', 'It\'s a site allowing people to easily and quickly create CVs with various themes. Build with Django.', 'img/createCV.png')">
-    <div class="p-2 shadow-lg shadow-gray-400 w-[270px] h-[30px] mt-2">
-      <img src="img/createCV.png" class="w-[250px] h-[250px]">
-      <div class="title">
-        <h1 class="text-xl font-bold"> CV creation platform</h1>
-        <p>It's a site allowing people to easily and quickly create CVs with various themes. Build with Django.</p>
-      </div>
-    </div>
-</div> 
-  </div>
 </div>
 
 <!-- Modal -->
@@ -241,6 +282,24 @@
 
     function closeModal() {
         document.getElementById('projectModal').style.display = 'none';
+    }
+
+    function scrollCarouselLeft() {
+        const carousel = document.getElementById('carousel');
+        carousel.scrollBy({
+            top: 0,
+            left: -270, // Ajustez la valeur pour le défilement
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollRight() {
+        const carousel = document.getElementById('carousel');
+        carousel.scrollBy({
+            top: 0,
+            left: 270, // Ajustez la valeur pour le défilement
+            behavior: 'smooth'
+        });
     }
 </script>
 
